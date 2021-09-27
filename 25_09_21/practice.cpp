@@ -1,13 +1,13 @@
 #include <iostream>
-#include <vector>
-#include <string>
 
-using namespace std;
+using std::cout;
 
 int main()
 {
-    std::cout << "Hello";
+    cout << "Hello\n";
+    system("pause");
     return 0;
+    
 }
 
 
