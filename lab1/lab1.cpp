@@ -70,24 +70,25 @@ int printStudents(int n, student * st) {
 * */
 /* А четные варианты – по возрастанию,
 * */
-bool isMax(student* st, int start, int end) {
-    if(st[start].score[3] < st[end].score[3]){
-        return true;
+void isMax(student* st, int currentId, int nextId) {
 
-    } else if (st[start].score[3] == st[end].score[3]) {
+    if (st[currentId].score[2] < st[nextId].score[2]) {
+        swap(st[nextId],st[currentId]);
 
-        if(st[start].score[2] < st[end].score[2]) {
-            return true;
+    } 
+    else if(st[currentId].score[2] == st[nextId].score[2]) {
 
-        } else if (st[start].score[2] == st[end].score[2]) {
+        if (st[currentId].score[1] < st[nextId].score[1]) {
+            swap(st[nextId],st[currentId]);
 
-            if (st[start].score[1] < st[end].score[1] || 
-                st[start].score[1] == st[end].score[1]) {
-                return true;
-            } 
+        } 
+        else if (st[currentId].score[1] == st[nextId].score[1]) {
+
+            if (st[currentId].score[0] < st[nextId].score[0]) {
+                swap(st[nextId],st[currentId]);
+            }
         }
-    }
-    return false;
+    }    
 }
 
 void printSortScoreStudents(int n, student* st) {
@@ -95,40 +96,32 @@ void printSortScoreStudents(int n, student* st) {
     int lenght = sizeof(st->score)/sizeof(st->score[0]);
     // Сортировка оценок по возрастанию и наибольшему баллу.
     
-    for (int s = 0; s < lenght; s++) {
+    for (int id = 0; id < n; id++) {
+        int tempScore, item;
 
-        for (int startIndex = 0, max = st[s].score[0], maxIndex = 0;
-            startIndex < lenght -1; 
-            ++startIndex) {
-
-            if (max < st[s].score[s]) {
-                maxIndex = s;
-            }
-
-            int smallestIndexScore = startIndex;
-
-            for (int currentIndex = startIndex +1; currentIndex < lenght; 
-                ++currentIndex) {
-
-                if(st[s].score[currentIndex] < st[s].score[smallestIndexScore]){
-                        smallestIndexScore = currentIndex;
-                }
-            }
-                swap(st[s].score[startIndex], st[s].score[smallestIndexScore]);
+        for (int current = 1; current < lenght; current++) {
+            tempScore = st[id].score[current];
+            item = current - 1;
+            while(item >= 0 && st[id].score[item] > tempScore){
+                st[id].score[item + 1] = st[id].score[item];
+                st[id].score[item] = tempScore;
+                item--;
             }
         }
+    }
     
-    // for (int id = 0; ){
+    for (int  currentId = 0; currentId <= n; currentId++) {
 
-    // }
-    swap(st[0],st[1]);
-
-    printStudents(n,st);        
-    
+        for (int nextId = currentId + 1; nextId <= n; nextId++){
+            isMax(st,currentId,nextId);
+        }
+    }
+   
+    printStudents(n,st); 
 }
 
-int main()
-{
+int main() {
+
     const int number = 1;
     
     system("chcp 1251");
