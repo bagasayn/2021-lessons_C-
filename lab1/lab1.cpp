@@ -122,7 +122,7 @@ void printSortScoreStudents(int n, student* st) {
 
 int main() {
 
-    const int number = 1;
+    const int number = 5;
     
     system("chcp 1251");
 
