@@ -1,5 +1,7 @@
-**.json
-**_DEBUG.exe
-**_RELEASE.exe
+*/*.json
+*/*.exe
+*/*.o
+*/*.gch
 **.txt
-**/practice.cpp
+practice.cpp
+/Makefile
