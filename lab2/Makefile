@@ -1,10 +1,10 @@
-all: lab2
+all:  lab2
 
 lab2: lab2.o
-	g++ lab2.o -o $@
+	g++ -o $@ lab2.o
 
-lab2.o: lab2.cpp
+lab2.o: lab2.cpp lab2.h
 	g++ -c $<
 
 clean: 
-	rm -f *.o *.exe
+	rm -f *.o *.exe *.gch && ls
