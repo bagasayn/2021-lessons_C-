@@ -21,27 +21,27 @@ public:
         {
             cout << lenght << " кратна трем" << endl;
 
-            int partDel = lenght / 3; 
-            int partNew = lenght - partDel + 1;
+            const char *newStart = str + (lenght / 3);
+            const char *end = str + lenght;
 
-            this->str = new char[partNew];
-        
-            for(int i = partDel; i < lenght; i++){
-                this->str[i - partDel] = str[i];
+            ptrdiff_t dif = end - newStart;
+            this->str = new char[dif + 1];
+
+            ptrdiff_t newStartId = newStart - str;
+            for(int i = 0; i <= dif; i++){
+                this->str[i] = str[i + newStartId];
             }
-
-            this->str[partNew] = '\0';
         }
         else
         {
             cout << "Добавляем + " << endl;
 
             this->str = new char[lenght + 1];
-            for(int i = 1; str[i - 1] != '\0'; i++){
-                this->str[0] = '+';
-                this->str[i] = str[i-1];
+
+            this->str[0] = '+';
+            for(int i = 1; i <= lenght; i++){
+                this->str[i] = str[i - 1];
             }
-            this->str[lenght + 1 ] = '\0';
         }
     };
 
@@ -58,7 +58,7 @@ public:
 int main ()
 {
     system("chcp 1251");
-    MyString str("123456789");
+    MyString str("123456789123");
     str.printStr();
 
     return 0;

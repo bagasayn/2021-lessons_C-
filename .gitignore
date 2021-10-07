@@ -1,7 +1,6 @@
-*/*.json
-*/*.exe
-*/*.o
-*/*.gch
-**.txt
+*.json
+*.exe
+*.o
+*.txt
 practice.cpp
 /Makefile
