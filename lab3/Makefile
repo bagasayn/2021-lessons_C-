@@ -7,4 +7,6 @@ lab3.o: lab3.cpp lab3.h
 	g++ -c $<
 
 clean: 
-	rm -f *.o *.exe *.gch && ls
+	rm -f *.o *.exe *.gch  
+c:
+	del *.o *.exe 
