@@ -6,25 +6,6 @@
  * Заменить все нулевые элементы массива на наибольший отрицательный элемент
 **/
 
-Vector::Vector(const char a){
-    for(int i = 0; i < 10; i++)
-    {
-        //(end-start+1)+start
-        this->arrayChar[i] = rand()%(122-97+1) + 97;
-    } 
-}
-
-Vector::Vector(const int a){
-    for(int i = 0; i < 10; i++)
-    {
-        std::cin >> this->arrayInt[i];
-    }
-}
-
-Vector::~Vector(){
-    
-}
-
 void Vector::showInt(){
     std::cout <<"\n| ";
             
