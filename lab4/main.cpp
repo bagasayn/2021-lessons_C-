@@ -1,7 +1,14 @@
 #include "lab4.h"
 
-int main(int argc, char const *argv[])
+using namespace std;
+
+void change (int &value){
+    ;
+}
+
+int main()
 {
-    /* code */
+    Array arr;
+    arr.result();
     return 0;
 }
