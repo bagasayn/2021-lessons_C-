@@ -1,3 +1,8 @@
+/**
+ * Кабак Сергей
+ * 
+*/
+
 #include <iostream>
 #include <stdlib.h>
 

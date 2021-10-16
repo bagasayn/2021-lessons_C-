@@ -1,3 +1,8 @@
+/**
+ * Кабак Сергей
+ * 
+*/
+
 #include "lab4.h"
 
 void Array::printf(){
