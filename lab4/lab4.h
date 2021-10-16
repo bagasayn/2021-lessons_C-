@@ -7,7 +7,7 @@
 class Array
 {
 private:
-    int **a;
+    int **a,*b;
     int i,j,n,m;
 public:
     Array(){
@@ -16,9 +16,15 @@ public:
         std::cout<< "Enter size m =" <<std::endl;
         std::cin>>m;
         a = new int *[n];
+        std::cout<<"Enter element:" <<std::endl; 
         for (int i = 0; i < n; i++)
         {
             a[i] = new int [m];
+            for (int j = 0; j < m; j++)
+            {
+                std::cin>>a[i][j];
+            }
+            
         }
         
         };
@@ -30,12 +36,8 @@ public:
         
         delete[] a;
     };
-    void printf(
-        const int& a, 
-        const int& n, 
-        const int& m
-        );
-    void result();
+    void printf();
+    friend void result(Array& obj);
 };
 
 #endif
